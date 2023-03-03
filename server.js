@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 dotenv.config()
+
 // This apis are created following https://platform.openai.com/docs/api-reference/edits/create?lang=node.js
 
 const configuration = new Configuration({
