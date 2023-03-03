@@ -2,9 +2,6 @@
     "name": "codex-server",
     "private": true,
     "version": "0.0.0",
-    "engines": {
-        "node": "18.x"
-    },
     "scripts": {
         "server": "node server.js",
         "start" : "netlify-lambda serve src",
