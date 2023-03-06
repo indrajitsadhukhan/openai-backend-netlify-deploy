@@ -6,6 +6,7 @@ const { Configuration, OpenAIApi } = require('openai')
 
 dotenv.config()
 const app=express()
+app.use(cors())
 const router=express.Router()
 
 const api_key=process.env.OPENAI_API_KEY
