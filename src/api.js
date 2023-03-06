@@ -4,7 +4,6 @@ const dotenv =require('dotenv')
 const cors =require('cors')
 const { Configuration, OpenAIApi } = require('openai')
 
-
 dotenv.config()
 const app=express()
 const router=express.Router()
@@ -144,6 +143,24 @@ router.post('/edits', async (req, res) => {
     }
   })  
 
+// POST Request to upload a new file
+router.post("/upload", (req, res) => {
+  // use modules such as express-fileupload, Multer, Busboy
+  // TODO: API to be implemented
+
+  setTimeout(() => {
+      console.log('file uploaded')
+      return res.status(200).json({ result: true, msg: 'file uploaded' });
+  }, 3000);
+});
+
+// DELETE Request to delete an existing file
+router.delete("/upload", (req, res) => {
+  // TODO: API to be implemented
+  
+  console.log(`File deleted`)
+  return res.status(200).json({ result: true, msg: 'file deleted' });
+});
 
 
 router.get('/',(req,res)=>{
