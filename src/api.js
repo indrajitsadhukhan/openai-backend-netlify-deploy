@@ -1,20 +1,16 @@
 const express = require('express');
 const serverless = require('serverless-http')
-const dotenv =require('dotenv')
 const cors =require('cors')
 const { Configuration, OpenAIApi } = require('openai')
-
-
-dotenv.config()
 const app=express()
 app.use(cors())
 app.use(express.json())
 const router=express.Router()
-
+require('dotenv').config()
 const api_key=process.env.OPENAI_API_KEY
 const configuration = new Configuration({
     apiKey: api_key,
-  });
+});
 
 const openai = new OpenAIApi(configuration);
 
