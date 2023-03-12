@@ -4,8 +4,8 @@
     "version": "0.0.0",
     "scripts": {
         "server": "node server.js",
-        "start" : "netlify-lambda serve src",
-        "build" : "netlify-lambda build src"
+        "start": "netlify-lambda serve src",
+        "build": "netlify-lambda build src"
     },
     "dependencies": {
         "cors": "^2.8.5",

@@ -4,6 +4,7 @@ const dotenv =require('dotenv')
 const cors =require('cors')
 const { Configuration, OpenAIApi } = require('openai')
 
+
 dotenv.config()
 const app=express()
 app.use(cors())
@@ -15,7 +16,6 @@ const configuration = new Configuration({
     apiKey: api_key,
   });
 
-
 const openai = new OpenAIApi(configuration);
 
 // Create completion
@@ -23,7 +23,7 @@ router.post('/completion', async (req, res) => {
     try {
       // Prompt = Content + Instruction
       const prompt = JSON.parse(req.apiGateway.event.body).prompt;
-      console.log(prompt)
+      // console.log(prompt)
       const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: `${prompt}`,
