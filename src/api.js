@@ -20,16 +20,22 @@ router.post('/completion', async (req, res) => {
       // Prompt = Content + Instruction
       const prompt = JSON.parse(req.apiGateway.event.body).prompt;
       // console.log(prompt)
-      const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: `${prompt}`,
-        temperature: 0,
-        max_tokens: 2000, 
-        top_p: 1, 
-        frequency_penalty: 0.5,
-        presence_penalty: 0, 
+
+      // const response = await openai.createCompletion({
+      //   model: "text-davinci-003",
+      //   prompt: `${prompt}`,
+      //   temperature: 0,
+      //   max_tokens: 2000, 
+      //   top_p: 1, 
+      //   frequency_penalty: 0.5,
+      //   presence_penalty: 0, 
+      // });
+
+      const response = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: prompt}],
       });
-  
+      
       res.status(200).send({
         bot: response.data.choices[0].text
       });
