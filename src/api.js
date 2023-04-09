@@ -33,11 +33,11 @@ router.post('/completion', async (req, res) => {
 
       const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{role: "user", content: prompt}],
+        messages: [{role: "user", content: `${prompt}`}],
       });
       
       res.status(200).send({
-        bot: response.data.choices[0].message
+        bot: response.data.choices[0].message.content
       });
   
     } catch (error) {
