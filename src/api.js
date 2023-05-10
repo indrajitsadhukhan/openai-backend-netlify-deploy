@@ -18,12 +18,12 @@ const openai = new OpenAIApi(configuration);
 router.post('/completion', async (req, res) => {
     try {
       // Prompt = Content + Instruction
-      const prompt = JSON.parse(req.apiGateway.event.body).prompt;
+      const prompt = "Answer in less than 100 words."+JSON.parse(req.apiGateway.event.body).prompt;
       // console.log(prompt)
         
          const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: "Answer in less than 100 words."+prompt
+      prompt: prompt
       temperature: 0,
       max_tokens: 200, 
       top_p: 1, 
